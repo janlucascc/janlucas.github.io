@@ -1,4 +1,4 @@
-# 🚀 Jan Lucas Galvão | Portfólio Pessoal
+# Jan Lucas Galvão | Portfólio Pessoal
 
 ![Preview do Portfólio](https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -11,7 +11,7 @@ Portfólio web desenvolvido para centralizar meus projetos, habilidades e result
 
 ---
 
-## 🎯 O Diferencial do Projeto
+## O Diferencial do Projeto
 
 Este portfólio foi desenhado para fugir do padrão genérico. A interface transmite um posicionamento minimalista, uso a tecnologia não apenas para escrever código, mas para **crescer negócios e otimizar resultados**.
 
@@ -24,7 +24,7 @@ Este portfólio foi desenhado para fugir do padrão genérico. A interface trans
 
 ---
 
-## 🛠️ Stack Tecnológica
+## Stack Tecnológica
 
 O projeto foi construído "Vanilla" (sem frameworks pesados), priorizando a performance extrema, controle absoluto do DOM e carregamento instantâneo.
 
@@ -35,9 +35,9 @@ O projeto foi construído "Vanilla" (sem frameworks pesados), priorizando a perf
 
 ---
 
-## 📂 Destaques do Portfólio
+## Destaques do Portfólio
 
-### 📈 Marketing & Tráfego
+### Marketing & Tráfego
 Demonstração de resultados reais em campanhas de Meta Ads e TikTok Ads, incluindo gestão de páginas de nicho, copywriting e redução drástica de CPA (Custo por Aquisição).
 
 ### 💻 M.E.R.U.E.M (Projeto Principal)
