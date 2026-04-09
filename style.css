@@ -1,26 +1,527 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
+/* =========================
+   RESET & VARIABLES
+========================= */
+:root {
+  /* Paleta Dark Mode Profissional e Limpa */
+  --bg-color: #0a0a0c;
+  --surface-color: #121418;
+  --surface-hover: #1a1d24;
+  --border-color: #262933;
+  --text-primary: #f8f9fa;
+  --text-secondary: #a1a1aa;
+  
+  /* Cores de Ação / Destaque */
+  --accent-color: #3b82f6; /* Azul Tech confiável */
+  --accent-hover: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: all 0.3s ease;
+  --max-width: 1000px;
+}
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-  text-align: center;
-  padding: 50px;
-  background: #111;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.hidden-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* =========================
+   TYPOGRAPHY & UTILITIES
+========================= */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.mt-4 { margin-top: 2rem; }
+
+/* =========================
+   LAYOUT
+========================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(8px); /* Única exceção aceitável para navbar legível */
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+main, header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =========================
+   HERO SECTION & GOOEY
+========================= */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem; /* offset navbar */
+}
+
+/* ATUALIZADO: Agora cobre todo o espaço para captar as bolhas do mouse */
+.gooey-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: url(#gooey);
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden; 
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
+
+.blob-1 {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 20%;
+  animation: float1 8s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 120px;
+  height: 120px;
+  top: 40%;
+  left: 50%;
+  background: #60a5fa;
+  animation: float2 10s ease-in-out infinite reverse;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.1); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 20px) scale(0.9); }
+}
+
+/* NOVO: Estilo e animação das bolhas geradas pelo mouse */
+.interactive-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-color);
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  animation: popAndFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popAndFade {
+  0% { 
+    transform: translate(-50%, -50%) scale(0); 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: translate(-50%, calc(-50% - 30px)) scale(1); 
+    opacity: 0.5; 
+  }
+  100% { 
+    transform: translate(-50%, calc(-50% - 60px)) scale(0); 
+    opacity: 0; 
+  }
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.badge-profissao {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  background: var(--accent-glow);
+  color: var(--accent-color);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+}
+
+.hero-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* =========================
+   SECTIONS & CARDS
+========================= */
 section {
-  padding: 40px;
-  max-width: 800px;
-  margin: auto;
+  padding: 5rem 0;
 }
 
-.projeto {
-  background: #1a1a1a;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-header .line {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+  margin-top: 1rem;
+  border-radius: 2px;
+}
+
+.card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   SOBRE MIM
+========================= */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* =========================
+   MARKETING E RESULTADOS
+========================= */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2.5rem 2rem;
+}
+
+.highlight-text {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.marketing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.marketing-grid ul {
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.marketing-grid li {
+  margin-bottom: 0.5rem;
+}
+
+/* =========================
+   PROJETOS (M.E.R.U.E.M)
+========================= */
+.projeto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  color: var(--text-secondary);
+}
+
+.projeto-features {
+  list-style: none;
+  margin: 1.5rem 0;
+}
+
+.projeto-features li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.projeto-features li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.tech-stack {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tech-stack i {
+  transition: transform 0.2s;
+}
+
+.tech-stack i:hover {
+  transform: scale(1.2);
+}
+
+/* =========================
+   TECNOLOGIAS (GRID)
+========================= */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.tech-item i {
+  font-size: 2rem;
+}
+
+/* =========================
+   OBJETIVO
+========================= */
+.highlight-card {
+  background: linear-gradient(145deg, var(--surface-color) 0%, #151a24 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  text-align: center;
+}
+.highlight-card h2 { margin-bottom: 1rem; }
+
+/* =========================
+   BOTÕES
+========================= */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.8rem;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  /* Propriedades base para o JS Magnetic */
+  will-change: transform; 
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: #fff;
+  border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--text-secondary);
+}
+
+/* =========================
+   FOOTER & CONTATO
+========================= */
+footer {
+  background: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  padding: 5rem 2rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer-content h2 { margin-bottom: 0.5rem; }
+
+.contato-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.contato-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  transition: var(--transition);
+}
+
+.contato-item:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* =========================
+   ANIMAÇÕES DE SCROLL (REVEAL)
+========================= */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 768px) {
+  .nav-links { display: none; } /* Simplificação mobile */
+  .sobre-grid { grid-template-columns: 1fr; }
+  .stats-container, .marketing-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.5rem; }
+  .button-group { flex-direction: column; width: 100%; }
+  .btn { width: 100%; }
+  .gooey-bg { display: none; } /* Remove fundo pesado no mobile */
+  .contato-links { flex-direction: column; gap: 1rem; }
 }

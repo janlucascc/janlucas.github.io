@@ -1,44 +1,219 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+    <link rel="stylesheet" href="style.css">
+  
+  <noscript>
+    <style>
+      .section-reveal { opacity: 1; transform: translateY(0); }
+    </style>
+  </noscript>
+
   <meta charset="UTF-8">
-  <title>Jan Lucas | Portfólio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jan Lucas | Estratégia & Marketing</title>
+  <meta name="description" content="Portfólio de Jan Lucas Galvão: Crescimento de negócios através de marketing digital, análise de dados e desenvolvimento web.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  
   <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-  <header>
-    <h1>Jan Lucas Galvão</h1>
-    <p>Marketing Digital + Desenvolvimento Web</p>
+  <svg width="0" height="0" class="hidden-svg">
+    <filter id="gooey">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey"/>
+      <feBlend in="SourceGraphic" in2="gooey"/>
+    </filter>
+  </svg>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <span class="logo-text">JL</span>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#marketing">Marketing</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero section-reveal">
+    <div class="gooey-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="badge-profissao">Marketing • Estratégia • Desenvolvimento Web</div>
+      <h1>Jan Lucas Galvão</h1>
+      <p class="hero-text">
+        Impulsiono o crescimento de negócios unindo o poder da <strong>tecnologia</strong>, a precisão da <strong>análise de dados</strong> e a escala do <strong>marketing digital</strong>.
+      </p>
+      <div class="button-group hero-btns">
+        <a href="#projetos" class="btn btn-primary magnetic">Ver Projetos</a>
+        <a href="#contato" class="btn btn-secondary magnetic">Entrar em contato</a>
+      </div>
+    </div>
   </header>
 
-  <section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>
-      Estudante de Ciência da Computação na UTFPR, focado em marketing digital e desenvolvimento de soluções web. Busco ajudar empresas a crescer através de tecnologia e estratégia.
-    </p>
-  </section>
+  <main>
+    
+    <section id="sobre" class="section-reveal">
+      <div class="section-header">
+        <h2>Sobre mim</h2>
+        <span class="line"></span>
+      </div>
+      <div class="sobre-grid">
+        <div class="sobre-texto">
+          <p>
+            Sou estudante de <strong>Ciência da Computação na UTFPR</strong> e construí uma base sólida de atuação híbrida. Tenho um perfil analítico, organizado e focado em resolver problemas reais.
+          </p>
+          <p>
+            Minha visão vai além do código ou da métrica isolada: busco entender o ecossistema do negócio para criar soluções que otimizam o desempenho e geram conversão.
+          </p>
+        </div>
+        <div class="sobre-diferencial card">
+          <h3>O Diferencial</h3>
+          <p>
+            Não sou apenas um programador, nem apenas um gestor de tráfego. Sou um estrategista que utiliza ferramentas técnicas e criativas para escalar resultados. A união entre lógica computacional e psicologia de vendas é a minha maior força.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <section id="projetos">
-    <h2>Projetos</h2>
+    <section id="marketing" class="section-reveal">
+      <div class="section-header">
+        <h2>Marketing Digital & Estratégia</h2>
+        <span class="line"></span>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stat-card card">
+          <h3 class="highlight-text">+1000</h3>
+          <p>Seguidores reais atraídos em apenas 1 semana via estratégias de anúncios.</p>
+        </div>
+        <div class="stat-card card">
+          <h3 class="highlight-text">R$ 0,20</h3>
+          <p>CPC médio alcançado em campanhas otimizadas aproveitando tendências das redes.</p>
+        </div>
+      </div>
 
-    <div class="projeto">
-      <h3>MERUEM</h3>
-      <p>Sistema de controle financeiro com saldo, reservas e cartões.</p>
-      <a href="https://meruem-finance.onrender.com/">Ver projeto</a>
+      <div class="marketing-grid mt-4">
+        <div class="card">
+          <h3>Gestão e Tráfego</h3>
+          <ul>
+            <li>Gestão ativa de 3 páginas de nicho: Eletrônicos, Perfumes e Moda.</li>
+            <li>Configuração e otimização de campanhas no <strong>Meta Ads</strong> e <strong>TikTok Ads</strong>.</li>
+            <li>Testes A/B focados em conversão e redução de CPA.</li>
+          </ul>
+        </div>
+        <div class="card" id="criativos">
+          <h3>Criação e Copywriting</h3>
+          <ul>
+            <li>Criação de criativos dinâmicos (vídeos focados no produto com apelo sonoro).</li>
+            <li>Edição profissional de imagens e vídeos para social media.</li>
+            <li>Desenvolvimento de copy persuasiva para anúncios e organização de identidade visual.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section-reveal">
+      <div class="section-header">
+        <h2>Engenharia de Software</h2>
+        <span class="line"></span>
+      </div>
+
+      <article class="projeto-destaque card">
+        <div class="projeto-info">
+          <div class="projeto-header">
+            <h3>M.E.R.U.E.M</h3>
+            <span class="badge-status">GPL 3.0 Open-Source</span>
+          </div>
+          <p class="projeto-desc">
+            Sistema web de gestão financeira projetado com foco extremo em simplicidade e usabilidade, especializado no controle inteligente de faturas e cartões de crédito.
+          </p>
+          <ul class="projeto-features">
+            <li>Interface moderna, limpa e minimalista.</li>
+            <li>Integração completa entre frontend dinâmico e backend robusto.</li>
+            <li>Arquitetura relacional segura para dados financeiros.</li>
+          </ul>
+          
+          <div class="tech-stack">
+            <i class="devicon-python-plain colored" title="Python"></i>
+            <i class="devicon-flask-original colored" title="Flask"></i>
+            <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i>
+            <i class="devicon-html5-plain colored" title="HTML5"></i>
+            <i class="devicon-css3-plain colored" title="CSS3"></i>
+            <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+            <i class="devicon-git-plain colored" title="Git"></i>
+          </div>
+
+          <div class="button-group">
+            <a href="https://meruemproject.shop/" target="_blank" rel="noopener" class="btn btn-primary magnetic">Acessar Aplicação</a>
+            <a href="https://github.com/janlucascc/meruem-finance" target="_blank" rel="noopener" class="btn btn-secondary magnetic">Ver Repositório</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="tecnologias" class="section-reveal">
+      <div class="section-header">
+        <h2>Stack Tecnológico</h2>
+        <span class="line"></span>
+      </div>
+      <div class="tech-grid card">
+        <div class="tech-item"><i class="devicon-python-plain colored"></i> Python</div>
+        <div class="tech-item"><i class="devicon-flask-original colored"></i> Flask</div>
+        <div class="tech-item"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</div>
+        <div class="tech-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+        <div class="tech-item"><i class="devicon-html5-plain colored"></i> HTML5 & CSS3</div>
+        <div class="tech-item"><i class="devicon-git-plain colored"></i> Git & GitHub</div>
+      </div>
+    </section>
+
+    <section id="objetivo" class="section-reveal">
+      <div class="card highlight-card">
+        <h2>Objetivo Profissional</h2>
+        <p>
+          Busco integrar uma Empresa Júnior para aplicar na prática minha visão estratégica. Quero colaborar com equipes multidisciplinares, vivenciar desafios reais do mercado e provar que um profissional com base técnica forte e mentalidade de marketing pode alavancar os resultados de qualquer projeto.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contato">
+    <div class="footer-content">
+      <h2>Vamos construir algo juntos?</h2>
+      <p>Aberto a propostas, networking e novos desafios.</p>
+      
+      <div class="contato-links">
+        <a href="mailto:janlucasgalvao@gmail.com" class="contato-item magnetic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          janlucasgalvao@gmail.com
+        </a>
+        <a href="https://github.com/janlucascc" target="_blank" rel="noopener" class="contato-item magnetic">
+          <i class="devicon-github-original"></i>
+          github.com/janlucascc
+        </a>
+      </div>
     </div>
-
-    <div class="projeto">
-      <h3>Marketing - Loja de Roupas</h3>
-      <p>Criação de campanhas Meta Ads, criativos e estratégias de engajamento.</p>
+    <div class="footer-bottom">
+      <p>© 2026 Jan Lucas Galvão. Todos os direitos reservados.</p>
     </div>
+  </footer>
 
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Email: janlucasgalvao@gmail.com</p>
-  </section>
-
+  <script src="app.js"></script>
 </body>
 </html>
